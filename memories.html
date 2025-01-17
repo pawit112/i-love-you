@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ความทรงจำของเรา 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5, #ffccdd);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease-in;
+            margin: 0;
+        }
+
+        h1 {
+            color: #ff6699;
+            font-weight: bold;
+            opacity: 0;
+            animation: slideIn 1.5s forwards;
+            margin-bottom: 20px;
+        }
+
+        .memory-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .memory-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 5px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 105, 180, 0.3);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .memory-container img.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 2px 2px 10px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease-in-out;
+            margin-top: 20px;
+            display: none; /* ปุ่มเริ่มต้นจะซ่อนไว้ */
+        }
+
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.1);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) { /* iPad */
+            .memory-container img {
+                width: 90px;
+                height: 90px;
+            }
+            button {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 768px) { /* มือถือ */
+            .memory-container img {
+                width: 80px;
+                height: 80px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ความทรงจำของเรา 💖</h1>
+    
+    <!-- เพิ่มเสียงเพลงจาก YouTube -->
+    <iframe width="0" height="0" src="https://youtu.be/kXw9uRNmnak?si=SN-eDSlIEaKc5STH" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    
+    <!-- พื้นที่แสดงรูป -->
+    <div class="memory-container">
+        <img src="รูป/1.jpg">
+        <img src="รูป//2.jpg">
+        <img src="รูป/-.jpg">
+        <img src="รูป/4.jpg">
+        <img src="รูป/5.jpg">
+        <img src="รูป/6.jpg">
+        <img src="รูป/7.jpg">
+        <img src="รูป/8.jpg">
+        <img src="รูป/9.jpg">
+        <img src="รูป/10.jpg">
+    </div>
+
+    <!-- ปุ่มไปหน้าวิดีโอ -->
+    <button id="nextButton" onclick="goToVideoPage()">อยากรู้หน้าต่อไปไหมกดสิ</button>
+
+    <script>
+        function goToVideoPage() {
+            window.location.href = "video.html";
+        }
+
+        // ฟังก์ชันทำให้รูปค่อย ๆ ปรากฏขึ้นทีละรูป
+        const images = document.querySelectorAll('.memory-container img');
+        let index = 0;
+
+        function showNextImage() {
+            if (index < images.length) {
+                images[index].classList.add('show');
+                index++;
+                setTimeout(showNextImage, 2000); // ค่อย ๆ แสดงทุก 2 วินาที
+            } else {
+                // เมื่อแสดงรูปครบทั้งหมดแล้ว, แสดงปุ่ม
+                document.getElementById('nextButton').style.display = 'block';
+            }
+        }
+
+        // เริ่มแสดงรูปเมื่อโหลดหน้าเสร็จ
+        window.onload = showNextImage;
+    </script>
+</body>
+</html>

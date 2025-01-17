@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สิ่งที่อยากจะบอก 💖</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5, #ffccdd);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow-y: auto; /* Allow scrolling */
+        }
+        h1 {
+            color: #ff6699;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .heart {
+            font-size: 50px;
+            color: #ff3366;
+            cursor: pointer;
+            animation: heartAnimation 1.5s infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes heartAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .messages {
+            display: none;
+            font-size: 20px;
+            color: #ff3366;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .messages p {
+            display: none;
+        }
+        .message-box {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+        }
+        button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 2px 2px 10px rgba(255, 105, 180, 0.3);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.1);
+        }
+
+        /* ---- Media Queries for mobile and tablet ---- */
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            .heart {
+                font-size: 40px;
+            }
+            .message-box {
+                width: 80%;
+                font-size: 16px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            .heart {
+                font-size: 35px;
+            }
+            .message-box {
+                width: 70%;
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>สิ่งที่อยากจะบอก 💖</h1>
+
+    <!-- หัวใจที่คลิกได้ -->
+    <div class="heart" onclick="showMessages()">❤️</div>
+
+    <!-- ข้อความที่อยากบอก -->
+    <div class="messages" id="messageBox">
+        <div class="message-box">
+            <p id="message1">1. เค้ารักเธอมากที่สุดในโลก</p>
+            <p id="message2">2. ทุกวันคือการผจญภัยที่มีเธอเคียงข้าง</p>
+            <p id="message3">3. ความสุขของเค้าคือการได้เห็นรอยยิ้มของเธอ</p>
+            <p id="message4">4. เค้าจะอยู่เคียงข้างเธอในทุกช่วงเวลา</p>
+            <p id="message5">5. เธอทำให้โลกนี้ดูสวยงามมากขึ้น</p>
+            <p id="message6">6. ขอบคุณที่อยู่เคียงข้างกันเสมอ</p>
+            <p id="message7">7. เธอคือแรงบันดาลใจในชีวิตของฉัน</p>
+            <p id="message8">8. การได้รักเธอทำให้ทุกสิ่งมีความหมาย</p>
+            <p id="message9">9. เค้าอยากใช้ชีวิตไปพร้อมกับเธอ</p>
+            <p id="message10">10. เค้าจะรักเธอไปตลอดชีวิต</p>
+        </div>
+        <button onclick="finishMessages()">ขอบคุณที่อยู่ข้างกันเสมอมา</button>
+    </div>
+
+    <script>
+        let messageIndex = 1;
+
+        // ฟังก์ชันแสดงข้อความ
+        function showMessages() {
+            document.getElementById('messageBox').style.display = 'block';
+            showMessage();
+        }
+
+        // แสดงข้อความแต่ละข้อ
+        function showMessage() {
+            if (messageIndex <= 10) {
+                document.getElementById('message' + messageIndex).style.display = 'block';
+                messageIndex++;
+                setTimeout(showMessage, 1000); // แสดงแต่ละข้อทุกๆ 2 วินาที
+            }
+        }
+
+        // ฟังก์ชันจบการแสดง
+        function finishMessages() {
+            alert('รองกดโอเครสิ'); 
+            window.location.href = "https://youtu.be/eKWSSHJ5d_I?si=_JAzcq0pweWp641M";  // เปลี่ยนไปที่ลิงค์อื่นหรือหน้าที่ต้องการ
+        }
+    </script>
+</body>
+</html>

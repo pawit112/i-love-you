@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แกลเลอรี่รูปภาพ 💖</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5, #ffccdd);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 0;
+        }
+        h1 {
+            color: #ff6699;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pin-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .pin-input {
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            text-align: center;
+            border: 2px solid #ff6699;
+            border-radius: 10px;
+            outline: none;
+        }
+        button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 2px 2px 10px rgba(255, 105, 180, 0.3);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.1);
+        }
+        .heart-image {
+            display: none;
+            font-size: 100px;
+            color: #ff3366;
+            margin-top: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .hint {
+            color: #ff3366;
+            font-size: 16px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .gallery {
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .gallery img.active {
+            opacity: 1;
+        }
+        .heart-move {
+            animation: heartMove 2s forwards;
+        }
+        @keyframes heartMove {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { transform: translateY(-30px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        /* ปรับให้รองรับ iPad */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 24px;
+            }
+            .pin-input {
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+            }
+            .gallery img {
+                width: 80px;
+                height: 80px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        /* สำหรับโทรศัพท์มือถือ */
+        @media (max-width: 768px) {
+            .pin-input {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+            .gallery img {
+                width: 70px;
+                height: 70px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>แกลเลอรี่รูปภาพ 💖</h1>
+
+    <!-- ช่องกรอกรหัส -->
+    <div class="pin-container">
+        <input type="text" id="pin1" class="pin-input" maxlength="1" oninput="moveFocus(1)">
+        <input type="text" id="pin2" class="pin-input" maxlength="1" oninput="moveFocus(2)">
+        <input type="text" id="pin3" class="pin-input" maxlength="1" oninput="moveFocus(3)">
+        <input type="text" id="pin4" class="pin-input" maxlength="1" oninput="moveFocus(4)">
+        <input type="text" id="pin5" class="pin-input" maxlength="1" oninput="moveFocus(5)">
+        <input type="text" id="pin6" class="pin-input" maxlength="1" oninput="moveFocus(6)">
+    </div>
+
+    <!-- คำใบสำหรับรหัส -->
+    <div class="hint">
+        รหัสของคุณ! (6 หลัก) 
+        ถ้าอยากให้ใบ้หันมาหอมแก้นแฟน1ที
+    </div>
+
+    <!-- แกลเลอรี่รูปภาพ -->
+    <div class="gallery" id="gallery">
+        <img src="รูป/11.jpg" alt="รูปที่ 1">
+        <img src="รูป/12.jpg" alt="รูปที่ 2">
+        <img src="รูป/13.jpg" alt="รูปที่ 3">
+        <img src="รูป/14.jpg" alt="รูปที่ 4">
+        <img src="รูป/15.jpg" alt="รูปที่ 5">
+        <img src="รูป/16.jpg" alt="รูปที่ 6">
+        <img src="รูป/17.jpg" alt="รูปที่ 7">
+        <img src="รูป/18.jpg" alt="รูปที่ 8">
+        <img src="รูป/19.jpg" alt="รูปที่ 9">
+        <img src="รูป//20.jpg" alt="รูปที่ 10">
+    </div>
+
+    <div id="heartImage" class="heart-image heart-move">❤️</div>
+
+    <!-- ปุ่มไปหน้าต่อไป -->
+    <button id="nextPageButton" onclick="nextPage()" style="display:none;">แล้วก็ถึงหน้าสุดท้ายแล้วสินะ</button>
+
+    <script>
+        function moveFocus(pinNumber) {
+            if (pinNumber < 6) {
+                document.getElementById("pin" + (pinNumber + 1)).focus();
+            }
+        }
+
+        function checkPin() {
+            const pin = [
+                document.getElementById("pin1").value,
+                document.getElementById("pin2").value,
+                document.getElementById("pin3").value,
+                document.getElementById("pin4").value,
+                document.getElementById("pin5").value,
+                document.getElementById("pin6").value
+            ].join("");
+
+            if (pin === "180749") {  // รหัสที่ถูกต้อง (วันเกิดของคุณ)
+                showGallery();
+            } else {
+                alert("รหัสไม่ถูกต้อง! ลองใหม่อีกครั้ง");
+            }
+        }
+
+        function showGallery() {
+            let currentImage = 0;
+            const images = document.querySelectorAll('.gallery img');
+            const totalImages = images.length;
+
+            images.forEach(image => {
+                setTimeout(() => {
+                    image.classList.add('active');
+                }, currentImage * 500);  // หน่วงเวลาในการแสดงแต่ละรูป
+                currentImage++;
+            });
+
+            document.getElementById("gallery").style.opacity = 1;
+            document.getElementById("heartImage").style.display = "block";
+            document.getElementById("heartImage").classList.add("heart-move");
+            document.querySelector(".pin-container").style.display = "none";  // ซ่อนช่องกรอกรหัส
+            document.querySelector(".hint").style.display = "none";  // ซ่อนคำใบ
+            document.getElementById("nextPageButton").style.display = "block"; // แสดงปุ่มไปหน้าต่อไป
+        }
+
+        function nextPage() {
+            window.location.href = "22.html"; // เปลี่ยนไปยังหน้าถัดไปที่ต้องการ
+        }
+
+        // เรียกฟังก์ชันตรวจสอบรหัสเมื่อกรอกครบ
+        document.querySelector(".pin-container").addEventListener("input", () => {
+            const pinValues = [
+                document.getElementById("pin1").value,
+                document.getElementById("pin2").value,
+                document.getElementById("pin3").value,
+                document.getElementById("pin4").value,
+                document.getElementById("pin5").value,
+                document.getElementById("pin6").value
+            ];
+            
+            if (pinValues.every(pin => pin.length === 1)) {
+                checkPin();
+            }
+        });
+    </script>
+</body>
+</html>
