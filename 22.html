@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            overflow-y: auto;
+            overflow-y: auto; /* Allow scrolling */
         }
         h1 {
             color: #ff6699;
@@ -67,13 +67,51 @@
             background-color: #ff3366;
             transform: scale(1.1);
         }
+
+        /* ---- Media Queries for mobile and tablet ---- */
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            .heart {
+                font-size: 40px;
+            }
+            .message-box {
+                width: 80%;
+                font-size: 16px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            .heart {
+                font-size: 35px;
+            }
+            .message-box {
+                width: 70%;
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>สิ่งที่อยากจะบอก 💖</h1>
 
+    <!-- หัวใจที่คลิกได้ -->
     <div class="heart" onclick="showMessages()">❤️</div>
 
+    <!-- ข้อความที่อยากบอก -->
     <div class="messages" id="messageBox">
         <div class="message-box">
             <p id="message1">1. เค้ารักเธอมากที่สุดในโลก</p>
@@ -87,29 +125,32 @@
             <p id="message9">9. เค้าอยากใช้ชีวิตไปพร้อมกับเธอ</p>
             <p id="message10">10. เค้าจะรักเธอไปตลอดชีวิต</p>
         </div>
-        <button onclick="finishMessages()">เปลี่ยนหน้า</button>
+        <button onclick="finishMessages()">ขอบคุณที่อยู่ข้างกันเสมอมา</button>
     </div>
 
     <script>
         let messageIndex = 1;
 
+        // ฟังก์ชันแสดงข้อความ
         function showMessages() {
             document.getElementById('messageBox').style.display = 'block';
             showMessage();
         }
 
+        // แสดงข้อความแต่ละข้อ
         function showMessage() {
             if (messageIndex <= 10) {
                 document.getElementById('message' + messageIndex).style.display = 'block';
                 messageIndex++;
-                setTimeout(showMessage, 1000);
+                setTimeout(showMessage, 1000); // แสดงแต่ละข้อทุกๆ 2 วินาที
             }
         }
 
+        // ฟังก์ชันจบการแสดง
         function finishMessages() {
-            alert('ลองกดโอเคสิ');
-            window.location.href = "nextpage.html";
+            alert('รองกดโอเครสิ'); 
+            window.location.href = "https://youtu.be/eKWSSHJ5d_I?si=_JAzcq0pweWp641M";  // เปลี่ยนไปที่ลิงค์อื่นหรือหน้าที่ต้องการ
         }
     </script>
 </body>
-</html>
+</html> 
